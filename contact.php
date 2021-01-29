@@ -33,6 +33,24 @@
     <!-- php baba -->
 
     <?php
+    
+        $to = 'saarrthidesign@gmail.com,anshmodi250@gmail.com';
+
+    $subject = 'Contact Us';
+    
+    $message = '<html><body>';
+    $message .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
+    $message .= "<tr style='background: #eee;'><td><strong>Name</strong> </td><td>" . strip_tags($_POST['name']) . "</td></tr>";
+    $message .= "<tr><td><strong>Email</strong> </td><td>" . strip_tags($_POST['email']) . "</td></tr>";
+    $message .= "<tr><td><strong>Massage</strong> </td><td>" . strip_tags($_POST['msg']) . "</td></tr>";
+    $message .= "<tr><td><strong>Contact</strong> </td><td>" . strip_tags($_POST['contact']) . "</td></tr>";
+    $message .= "</table>";
+    $message .= "</body></html>";
+
+    $headers = "From: " . strip_tags($_POST['email']) . "\r\n";
+    $headers .= "CC: hasmukhmodi1012@gmail.com\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $name = $_POST['name'];
